@@ -17,13 +17,13 @@ import axios from 'axios';
       then((files)=>{
         //console.log("received ...................." ,files.data);
         var arr = files.data;
-        console.log("before    .... ", files.data);
+        //console.log("before    .... ", files.data);
         var fData = arr.map(function(d){
           return(
           d.substring(26)
         );
         });
-        console.log("chhhhhhhhhhhhhheck ", fData);
+        //console.log("chhhhhhhhhhhhhheck ", fData);
         this.setState({
           files: fData
         })
@@ -40,6 +40,7 @@ import axios from 'axios';
           <DropDownMenu  onChange={this.props.handleChange} >
           {logData}
           </DropDownMenu>
+          
         );
       }
     }

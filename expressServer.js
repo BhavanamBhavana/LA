@@ -40,7 +40,7 @@ app.get('/files',function(req,res){
 })
 app.get('/logs/:filename',function(req,res){
   // arr = [];
-
+  console.log("urrrrrrrrrrrl",req.params.filename);
   var lineReader = require('readline').createInterface({
     input: require('fs').createReadStream(req.params.filename)
   });
@@ -51,7 +51,7 @@ app.get('/logs/:filename',function(req,res){
 
   lineReader.on('close',function(){
     res.setHeader("Access-Control-Allow-Origin", "*");
-    console.log(arr);
+  
     res.send(arr);
   })
 

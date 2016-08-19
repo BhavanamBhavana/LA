@@ -12,25 +12,32 @@ var myData;
    constructor(props){
      super();
      this.state ={
-       errorData:[]
+       errorData:[],
+       source :""
      }
    }
-   componentWillMount(){
-     this.gettingData();
+   componentWillReceiveProps(nextProps) {
+      this.setState({
+        source:nextProps.source
+      });
+}
+componentWillMount(){
+  this.something();
+}
+   something(){
+    var _this = this;
+    this.serverRequest =
+      axios
+        .get(this.state.source)
+        .then(function(result) {
+          myData = result.data
+              errorArray = myData.map(function(error){
+               return(<ErrorPaper key={keyNumber++}  error={error}/>)
+             })
+             _this.setState({errorData:errorArray})
+          });
+
    }
-   gettingData(){
-     var _this = this;
-     this.serverRequest =
-     axios
-       .get(this.props.source)
-       .then(function(result) {
-         myData = result.data
-             errorArray = myData.map(function(error){
-              return(<ErrorPaper key={keyNumber++}  error={error}/>)
-            })
-            _this.setState({errorData:errorArray})
-         });
-    }
 
    onChange(e){
      console.log('Filtered text is'+ e.target.value)
@@ -43,17 +50,23 @@ var myData;
       return(<ErrorPaper key={keyNumber++}  error={error}/>)
     })
     this.setState({errorData:errorArray})
-
+    // this.state.errorData.forEach(function(error){
+    //    if(error["status-code"].indexOf(e.target.value)>-1){
+    //      return(<ErrorPaper key={keyNumber++} error={error})
+    //    }
+    //  })
   }
      render(){
+       var some = this.something();
       return(
         <div>
         <div>
         <SearchBar hintText="Enter status code to search for logs"  onChange = {this.onChange.bind(this)} />
-
+        {some}
         </div>
         <div>
         {this.state.errorData}
+        {this.state.source}
         </div>
         </div>
       )

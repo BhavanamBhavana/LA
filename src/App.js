@@ -19,14 +19,14 @@ dropDownChange = (event ,index ,value) =>{
   });
 }
   render(){
-
+    console.log("setStateeeeeeeeeeeeeeeeee",this.state.url);
     return(
 
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <div>
           <TitleBar title="Logger Analytics Dashboard" />
           <DropDown handleChange = {this.dropDownChange} />
-          <ErrorContainer source={this.state.url}/>
+          <ErrorContainer source = {this.state.url} />
         </div>
       </MuiThemeProvider>
 
