@@ -20,7 +20,11 @@ import axios from 'axios';
         //console.log("before    .... ", files.data);
         var fData = arr.map(function(d){
           return(
+<<<<<<< HEAD
           d.substring(27)
+=======
+          d.substring(26)
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
         );
         });
         //console.log("chhhhhhhhhhhhhheck ", fData);
@@ -40,7 +44,11 @@ import axios from 'axios';
           <DropDownMenu  onChange={this.props.handleChange} >
           {logData}
           </DropDownMenu>
+<<<<<<< HEAD
 
+=======
+          
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
         );
       }
     }

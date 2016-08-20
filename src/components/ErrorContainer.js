@@ -3,9 +3,16 @@ import ErrorPaper from './ErrorPaper.js'
 import $ from 'jquery'
 import axios from 'axios'
 import SearchBar from 'material-ui/TextField'
+<<<<<<< HEAD
 var myData;
 var errorArray=[];
 var keyNumber=0;
+=======
+//import DropDown from './DropDown'
+  var errorArray = [];
+ var keyNumber=0;
+var myData;
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
 
  export default class ErrorContainer extends React.Component{
    constructor(props){
@@ -14,6 +21,7 @@ var keyNumber=0;
        errorData:[]
      }
    }
+<<<<<<< HEAD
 
   componentDidMount(){
     this.fetchingData();
@@ -23,14 +31,24 @@ var keyNumber=0;
   }
 
    fetchingData(){
+=======
+   componentWillMount(){
+     this.gettingData();
+   }
+   gettingData(){
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
      var _this = this;
      this.serverRequest =
      axios
        .get(this.props.source)
        .then(function(result) {
+<<<<<<< HEAD
          console.log(result.data);
 
          myData = result.data;
+=======
+         myData = result.data
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
              errorArray = myData.map(function(error){
               return(<ErrorPaper key={keyNumber++}  error={error}/>)
             })
@@ -40,6 +58,10 @@ var keyNumber=0;
 
    onChange(e){
      console.log('Filtered text is'+ e.target.value)
+<<<<<<< HEAD
+=======
+    //  console.log(this.state.errorData)
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
      var filteredData = myData.filter(function(value){
        console.log("valueb ois  " ,value);
        return value["status-code"].indexOf(e.target.value)>-1?true:false
@@ -51,11 +73,18 @@ var keyNumber=0;
 
   }
      render(){
+<<<<<<< HEAD
 
+=======
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
       return(
         <div>
         <div>
         <SearchBar hintText="Enter status code to search for logs"  onChange = {this.onChange.bind(this)} />
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
         </div>
         <div>
         {this.state.errorData}

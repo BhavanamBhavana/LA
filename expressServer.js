@@ -18,18 +18,30 @@ var port = 7770;
 app.use(customMiddleware);
 
 // Respond to GET request on the root route (/), the application’s home page
+<<<<<<< HEAD
 
+=======
+var arr = [];
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
 app.get('/', function (req, res) {
     res.end('Hello Express!');
 });
 app.get('/files',function(req,res){
+<<<<<<< HEAD
   dir.readFiles("/home/bhavana/WorkSpace/LA", {
+=======
+  dir.readFiles("/home/osgdev/workspace/la", {
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
       match: /.log$/,
        exclude: ['Changelog']
       }, function(err, content, next) {
           if
            (err) throw err;
+<<<<<<< HEAD
           //console.log('content:', content);
+=======
+          console.log('content:', content);
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
           next();
       },
       function(err, files){
@@ -39,7 +51,12 @@ app.get('/files',function(req,res){
       });
 })
 app.get('/logs/:filename',function(req,res){
+<<<<<<< HEAD
   var arr = [];
+=======
+  // arr = [];
+  console.log("urrrrrrrrrrrl",req.params.filename);
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
   var lineReader = require('readline').createInterface({
     input: require('fs').createReadStream(req.params.filename)
   });
@@ -50,7 +67,11 @@ app.get('/logs/:filename',function(req,res){
 
   lineReader.on('close',function(){
     res.setHeader("Access-Control-Allow-Origin", "*");
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> c8d8a7eb874ce7012352a0a563bf61dab599bea6
     res.send(arr);
   })
 
